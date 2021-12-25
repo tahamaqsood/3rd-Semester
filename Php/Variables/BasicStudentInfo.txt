@@ -1,7 +1,14 @@
+
 <?php
+
 $name = "Usman";
 $Age = 23;
 $Email = "usman@gmail.com";
+
+
+//Note: You don't need to define data type of variable. In php it will get data type
+of a given value automatically according to it's return type.
+
 
 echo "<u><h1>"."Student Information:";
 echo "<br>";
@@ -17,3 +24,20 @@ echo "Student email is ".$Email;
 echo "<br>";
 
 ?>
+
+
+
+
+/*
+
+Note: You can call variable either with concatination or without doing concatination.
+
+Method(1) Calling Variable With Concatination:
+echo "Name is: ".$name;
+
+Method(2) Calling Variable Without Concatination:
+echo "Name is: $name";
+
+Both Methods Are Correct.
+
+*/

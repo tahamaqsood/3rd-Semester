@@ -28,3 +28,20 @@ echo "Division value is: ".$div;
 echo "<br>"; 
 
 ?>
+
+
+
+
+/*
+
+Note: You can call variable either with concatination or without doing concatination.
+
+Method(1) Calling Variable With Concatination:
+echo "Sum is: ".$sum;
+
+Method(2) Calling Variable Without Concatination:
+echo "Sum is: $sum";
+
+Both Methods Are Correct.
+
+*/
