@@ -11,7 +11,7 @@ $Details = array(
 
 echo $Details[0][0]; /* For printing ID no: 101 */
 
-echo str_repeat('&nbsp;', 10); /* For giving 5 spaces!! (str represents string value) */
+echo str_repeat('&nbsp;', 10); /* For giving 10 spaces!! (str represents string value) */
 
 echo $Details[4][2]; /* For printing an email of 5th row */
 
