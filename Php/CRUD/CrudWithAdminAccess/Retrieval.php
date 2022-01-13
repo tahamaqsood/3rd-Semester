@@ -32,7 +32,7 @@ if(isset($_POST['btnSearch']))
     }
     else if($select=="NAME")
     {
-      $query = "select * from USERS where NAME='$searchBar'";
+      $query = "select * from USERS where NAME like '$searchBar%'";
     }
     else if($select=="AGE")
     {
@@ -112,9 +112,6 @@ else
                 }
             }
                 ?>
-
-
-
             </table>
         </div>
     </div>
