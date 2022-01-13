@@ -31,7 +31,7 @@ if(isset($_GET['btnSearch']))
    }
    else if($SearchBy=="name")
    {
-       $query = "select * from STUDENT where NAME = '$SearchBar'";
+       $query = "select * from STUDENT where NAME like '$SearchBar%'";
        $exec = mysqli_query($con,$query);
    }
    else if($SearchBy=="age")
