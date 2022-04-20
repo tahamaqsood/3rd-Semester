@@ -1,0 +1,46 @@
+
+==========
+FRAMEWORK:
+==========
+
+=> A framework is a platform for developing software applications.
+
+
+=> It provides a foundation on which software developer can buid programs for a
+specific platform.
+
+
+=> A framework may include pre-defined classes & functions that can be used to process
+input, manage hardware devices and interact with system softwares.
+
+
+=> A framework provides set of rules and regulations for developing a software.
+
+
+=> Framework provides an architecture to develop software in a structural & logical manner.
+
+
+=> MVC is a most common feature used in frameworks.
+
+
+
+==================
+NEED OF FRAMEWORK:
+==================
+
+=> Framework is a basic templating structure that is used to develop, test and deploy
+applications rapidly and efficiently.
+
+
+
+======================
+PURPOSE OF FRAMEWORKS:
+======================
+
+=> Provide Abstraction (Hides irrelevant things).
+
+
+=> Handles repetitive and menial task.
+
+
+=> Arrange thing in a logical structure. 
