@@ -1,0 +1,165 @@
+
+========================
+INTRODUCTION TO LARAVEL:
+========================
+
+=> Laravel is a PHP based web framework for building high-end web applications using its significant
+and graceful syntaxes.
+
+
+=> It comes with a robust collection of tools and provides application architechture.
+
+
+=> Moreover, it includes various characteristics of technologies like ASP.NET, CodeIgniter, Ruby on Rails
+and alot more.
+
+
+=> It facilitates developers by saving huge time and helps reduce thinking and planning to develop the entire
+website from scratch.
+
+
+=> Open source PHP framework.
+
+
+=> Uses the Model-View-Controller (MVC) design pattern.
+
+
+=> Laravel is an alternative to Cake Php & CodeIgniter.
+
+
+=> Taylor Otwell developed Laravel in July 2011 and it was released more than five years after the release
+of the CodeIgniter.
+
+
+
+~ Some essential features provided by Laravel are:
+
+* Routing Controllers
+
+* Configuration Management (Can be done by Laravel automatically).
+
+* Testability (You can test applications in different scenarios).
+
+* Authentication & Authorization of users (Website and its panel can be access by selective audience).
+
+* Modularity (Separation of tasks into tiny Modules. eg: Database work, Business Logic work, UI Desining work can be splitted into 3different modules).
+
+* ORM = Object Relational Mapper (Just like entity framework in ASP.NET which auto-generates model classes according to our database tables).
+
+* Provides Template Engine (In Laravel, Template engine name is Blade).
+
+* Building Schemas.
+
+* E-mail facilities.
+
+
+=============================
+PURPOSE OF LARAVEL FRAMEWORK:
+=============================
+
+=> Provide Abstraction (Hides irrelevant things).
+
+
+=> Handles repetitive and menial task.
+
+
+=> Arrange things in a logical structure. 
+
+
+=> Reuses and assembles existing components, dependencies and libraries.
+
+
+=> To build web applications in a structural manner.
+
+
+=> Convention Over configuration.
+
+
+=> Artisan Command For Automation.
+
+
+=> Helper Functions (Global Php Functions).
+
+
+=> Extensive Library.
+
+
+Note: Your model class name will be set as plural in mapping procedure.
+
+For example: Table name is Student, Model class name is Students.
+
+Mapping is the process in which you create model classes according to your database tables and columns.
+
+
+
+==============================
+CONVENTION OVER CONFIGURATION:
+==============================
+
+i)    Can predict the dependencies of your application.
+
+ii)   Automate the configuration related tasks.
+
+iii)  Reduces the time & effort required to set up and configure services.
+
+iv)   Suitable for Rapid Application Development (RAD).
+
+
+
+===============================
+ARTISAN COMMAND FOR AUTOMATION:
+===============================
+
+i)    Artisan is the name of the Command-Line-Interface (CLI) included in Laravel.
+
+ii)   It provides a maximum number of helpful commands for your use while developing an application.
+
+iii)  It is driven by the powerful symfony console component.
+
+iV)   It is basically an Automation tool provided by Laravel.
+
+v)    Used to create models, views and controllers by typing commands.
+
+vi)   Used to create dummy server.
+
+vii)  You can also perform database operations by using Artisan commands.
+
+
+Note: To view a list of all available Artisan commands, you may use the list command: php artisan list.
+
+
+
+========================================
+HELPER FUNCTIONS (GLOBAL PHP FUNCTIONS):
+========================================
+
+i)    Helper functions reduces time & effort.
+
+ii)   Helper functions are classified as follows:
+
+* Arrays & objects
+
+* Paths
+
+* Strings
+
+* URLs
+
+* Miscellaneous 
+
+
+
+====================
+EXTENSIVE LIBRARIES:
+====================
+
+i)    Includes alot of popular and commonly used libraries.
+
+ii)   Reduces time & effort.
+
+iii)  Code snippet that allows inclusion of external libraries by using the composer package manager.
+
+Note: You can download/Use the external libraries with the help of composer.
+
+iv)   Command for using External Libraries: Composer require <Library-name>.
+
