@@ -1,0 +1,5 @@
+============
+DESCRIPTION:
+============
+In practice sessions, We will practice of all the main modules we have learned in php so far.
+Include: Complete Registration Form, (Signup / Login) , CRUD and CRUD with Images.
