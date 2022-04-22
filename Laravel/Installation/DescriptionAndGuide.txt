@@ -1,0 +1,142 @@
+
+========================================
+DOWNLOADING AND INSTALLATION OF LARAVEL:
+========================================
+* We need to download 4 things before laravel installation.
+
+===========================================
+1. Wamp Server / Xamp Server / Mamp Server:
+===========================================
+i)   Install Wamp Server if you are Windows user.
+ii)  Install Xamp Server if you are Linux user.
+iii) Install Mamp Server if you are Mac user.
+
+Note: Linux & Windows both supports Xamp Server. So even if you are windows user,
+you can install Xamp Server.
+
+=========================================
+2. Composer (Dependency Manager For PHP):
+=========================================
+i)   Composer is a tool for dependency management in php.
+ii)  Composer provides you CLI to run commands.
+iii) It allows you to declare the libraries your project depends on and it will manage install/update them for you.
+iv)  It helps us installing/updating various requirements/components for our app such as laravel framework.
+
+======================
+3. Visual Studio Code:
+======================
+i)   Vs Code is a basic text editor which supports various programming languages.
+ii)  It facilitates us with the feature of terminal which helps us to install packages & frameworks. 
+
+============
+4. Git Bash:
+============
+i)   Git Bash also provides us Command-Line-Interface to include third party packages.
+ii)  Bash is an acronym for Bourne Again Shell.
+iii) A shell is a terminal application used to interface with an operating system through written commands.
+
+
+============================
+FOR DOWNLOADING WAMP SERVER:
+============================
+* Go to google => search Wamp Server => Click on 1st website. Link: https://sourceforge.net/projects/wampserver/
+=> Click on green download button.
+
+
+=========================
+FOR DOWNLOADING COMPOSER:
+=========================
+* Go to google => search composer => click on first link: https://getcomposer.org/ => click on download button
+=> click on Composer-Setup.exe.
+
+
+===================================
+FOR DOWNLOADING VISUAL STUDIO CODE:
+===================================
+* Go to google => search Visual Studio Code => click on 1st website link: https://code.visualstudio.com/download
+=> click on download button which is in windows icon shape.
+
+
+=========================
+FOR DOWNLOADING GIT BASH:
+=========================
+* Go to google => search git bash => click on first website link: https://git-scm.com/download/win
+=> click on 64-bit Git for Windows Setup.
+
+
+============================
+INSTALLATION OF WAMP SERVER:
+============================
+* Double click on wamp server - click on run - click on yes - click on ok - click on I accept the agreement
+- click next - again click on next - mark check on all php versions - tick on latest version of MySql
+- click on next - again click on next - click on install - click on "No" - click on "No" again - click on next
+- click on finish - Run Wamp server.
+
+Note: If your wamp server icon doesn't change from orange to green then change its port from 80 to 90 or 9090. 
+
+
+=========================
+INSTALLATION OF COMPOSER:
+=========================
+* Double click on composer setup - run - install for all users - click yes - click next - choose the command line
+php you want to use - select latest version (higher than 7.2.25) - click on next - again next - click on install
+- click on next - click on finish - restart system.
+
+* Now check if the composer is installed or not - use short cut key "window + r" - type "cmd" - click ok 
+- type composer and enter.
+
+
+===================================
+INSTALLATION OF VISUAL STUDIO CODE:
+===================================
+* Double click on Vs Code setup - click on next every time you see next button and at last click on finish.
+
+
+=========================
+INSTALLATION OF GIT BASH:
+=========================
+* Double click on gitbash setup - run setup - click on next - again click on next - mark check on
+additional icons - click on next - click on next again - now you see drop down list - select
+"Use Visual Studio Code as Git's default editor" - click on next 4 times - click on install - remove check
+from "View Release Notes" - click on next.
+
+
+========================
+INSTALLATION OF LARAVEL: 
+========================
+* Open Visual Studio Code - click on Terminal - click on new terminal.
+
+* Command For Installing laravel Using Composer: composer global require laravel/installer
+
+* For clearing Terminal, use command: clear and press enter.
+
+* Command For Creating Laravel Project: laravel new project_name
+
+* It takes 4 to 5 minutes to create your application, after 4 to 5 minutes the message will be shown as
+  "Application Ready! Build something amazing".
+
+* Now run your application - go to browser - type localhost:80/FolderName/ApplicationName.
+
+Note: It will show you many directories, you have to click on public directory. It will redirect you to
+your application page.
+
+
+==============================
+CHANGE POWERSHELL TO GIT BASH:
+==============================
+
+Step.1 Go to file tab in vs code - go to preferences - go to settings.
+
+Step.2 There is a list in left hand side, and from that list select features.
+
+Step.3 In features list, select Terminal then scroll downward and click to Edit in settings.json.
+
+Step.4 Remove all data of settings.json, and then in the curly brackets, pass the path given below.
+
+
+  { 
+    "terminal.integrated.shell.windows": "C:\\ProgramFiles\\Git\\bin\\bash.exe"
+  }
+
+Step.5 Press ctrl + s to save file. Now, close vs code and re-open it. Open Terminal - New Terminal
+- you will see powershell has replaced by Git Bash in terminal.
