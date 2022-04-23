@@ -1,0 +1,18 @@
+
+===================================================
+GUIDE FOR CREATION OF FIRST APPLICATION IN LARAVEL:
+===================================================
+
+* Open Xamp => Run apache service => Minimize Xamp.
+
+* Open Vs Code => open Terminal => New Terminal.                (Short cut key = Ctrl+Shift+`)
+
+* Command for installing laravel: composer global require laravel/installer.
+
+* Command for creating new project: laravel new project_name.   (laravel new usman)
+
+Note: You don't need to install laravel in your every project. You need to install laravel framework only once.
+
+* Open browser => type localhost:Port/FolderName/ProjectName/   (localhost:88/FirstProject/usman/)
+
+* You will see so many directories, you need to click on public folder. It will redirect you to your application's index page.
