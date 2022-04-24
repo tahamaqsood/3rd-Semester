@@ -1,0 +1,58 @@
+
+=========================
+REMOVING PUBLIC FROM URL:
+=========================
+
+Step.1 Open vs code - right click on your project - click on Reveal in File Explorer.
+       Project Reveal in File Explorer short cut key = "Shift+Alt+R".
+
+Step.2 Double click on your project folder - open public folder - copy .htaccess file
+       - get back to your project folder - paste .htaccess file.
+
+Step.3 In your project folder, there is a PHP file named as "server" - copy server file
+       - paste it in the same project folder.
+
+Step.4 The file name will be shown as "server - Copy". Rename it from "server - Copy" to "index".
+
+
+===============
+IMPORTANT NOTE:
+===============
+
+       Now, when you run your application, it will directly redirect you to your welcome page instead
+       of showing directories. But there is a security issue will be occured after removing public
+       from URL. Your ".env" file (Database File) is now visible to everyone. To avoid this you need 
+       to hide your .env file. 
+       
+
+======================
+HIDING .env FILE CODE:
+======================
+
+       #Hides a specific file
+       <Files .env> 
+       Order allow,deny
+       Deny from all
+       </Files>
+
+
+Note:  Open vs code - in your project folder - open htaccess and paste all the above code before the
+       closing tag of IfModule to hide your ".env" file. Save it (Ctrl+s).
+
+
+========
+EXAMPLE:
+========
+
+       <IfModule>
+
+       #Hides a specific file
+       <Files .env> 
+       Order allow,deny
+       Deny from all
+       </Files>
+
+       </IfModule>
+
+
+
