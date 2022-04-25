@@ -1,0 +1,125 @@
+
+===================
+ROUTING IN LARAVEL:
+===================
+
+* Routing is one of the essential concepts in laravel.
+
+* Routing allows you to map the request with the appropriate location.
+
+* Routing in laravel allows you to route all your application requests to its appropriate controller.
+
+* All the routes in laravel are defined within the route files that you can find in the route directory.
+
+* URL stands for Uniform Resource Locator.
+
+* Uri stands for Uniform Resource Identifier.
+
+-----
+Note:
+-----
+1. In laravel, must use ".blade.php" extension after your view name. Example: About.blade.php.
+
+2. Blade is templating engine provided by Laravel framework.
+
+3. Welcome.blade.php file exists in Views folder. And Views folder is stored in Resources directory.
+
+4. Web.php file is stored in routes directory.
+
+
+================
+ROUTING PROCESS:
+================
+           
+                   ======================       ==============       ================       ==============
+                   ||FirstProject/index||  -->  ||Controller||  -->  ||Index Method||  -->  ||Index View||
+                   ======================       ==============       ================       ==============
+
+-----
+Note:
+-----
+1. FirstProject/index/ is your URL request.
+
+2. Controller is class of PHP.
+
+3. Index Method is Action Result.
+
+4. Index View is View.
+
+
+                        URL REQUEST               PHP CLASS            ACTION RESULT             VIEW
+                   ======================       ==============       ================       ==============
+                   ||FirstProject/About||  -->  ||Controller||  -->  ||About Method||  -->  ||About View||
+                   ======================       ==============       ================       ==============
+
+~ Go to web.php file stored in routes directory and you will see this code;
+
+       Route::get('/',function() {
+          return view('Welcome');
+       }); 
+
+- So basically whenever you enter forward slash / after your folder name in URL, it display Welcome page
+  which is default page of your web.
+
+- Now, create your own route.
+
+       Route::get('/Laravel',function() {
+          return "Welcome to Laravel";
+       }); 
+
+- Now, save this code and enter /Laravel in URL after your folder name to see result.
+
+- These route files get loaded and generated automatically by Laravel framework.
+
+- All the routes related to your web application (web.php file) are stored in routes directory.
+
+
+===================================================
+AVAILABLE ROUTER METHODS (HTTP METHOD / HTTP VERB):
+===================================================
+
+1. Route::get($uri , $callback function);
+
+2. Route::post($uri , $callback function);
+
+3. Route::put($uri , $callback function);
+
+4. Route::patch($uri , $callback function);
+
+5. Route::delete($uri , $callback function);
+
+6. Route::options($uri , $callback function);
+
+
+=================
+USE OF HTTP POST:
+=================
+
+* Go to Welcome.blade.php file stored in Views folder, and create form.
+
+  <Form action="{{ url('/submit'); }}" method="post">
+
+   {{ csrf_field() }}  <!-- Calling csrf Method -->
+
+   <input type="submit" value="Submit">  <!-- For Submit Button-->
+
+  </Form>
+
+* Now, go to web.php file stored in routes directory and create your own route.
+
+  Route::post("/submit" , function() {
+     return "Form has been submitted";
+  });
+
+-----
+Note:
+-----
+1. {{ }} this is blade syntax for creating URL.
+
+2. In Laravel, you need to call csrf method in your form. Without csrf method your form won't work.
+
+3. There are two ways to call csrf method in your Form.
+
+i)  {{ csrf_field() }}   (By using blade syntax).
+
+ii) @csrf   (Short cut).
