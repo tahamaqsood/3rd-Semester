@@ -1,0 +1,1 @@
+<h1> This is About Page </h1><?php /**PATH C:\xampp\htdocs\ViewsAndControllers\Practice\resources\views/Home/About.blade.php ENDPATH**/ ?>

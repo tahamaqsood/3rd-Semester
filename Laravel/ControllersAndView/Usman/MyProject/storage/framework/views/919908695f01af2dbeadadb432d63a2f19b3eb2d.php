@@ -1,0 +1,1 @@
+<h1> This is Index Page </h1><?php /**PATH C:\xampp\htdocs\ViewsAndControllers\Practice\resources\views/Home/Index.blade.php ENDPATH**/ ?>
