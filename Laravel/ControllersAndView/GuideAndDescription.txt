@@ -1,0 +1,216 @@
+
+============
+CONTROLLERS:
+============
+
+* Since we know that Laravel framework follows MVC design pattern, In MVC framework, the letter 'C' stands for Controller.
+
+* It acts as a directing traffic between views and models.
+
+* Controllers are php classes.
+
+* Controllers are used to create application logic.
+
+* Controllers contains one or more than one methods which can return different types of data.
+
+* Controllers move requests and responses from the routes files to their own separate files and functions.
+
+* Controller organized web applications.
+
+* Easy to implement Create , Read , Update and Delete (CRUD) operations.
+
+* Can be initiated using Single action Controllers and Recource Controller.
+
+* Controller separates the Controller/Application logic from the presentation logic.
+
+* Controller can be seen at app/Http/Controllers.
+
+* Every Controller class must extends/inherits parent/base Controller class.
+
+
+Note: In Controllers folder, there is a pre-defined class named as "Controller.php" which is a parent/base class
+      of all controllers including those controllers which you would create for your application in future.
+
+- Command for creating Controller: php artisan make:controller <Controller-Name>
+- Example ==> ==> ==> ==> ==> ==>  php artisan make:controller HomeController
+
+
+Note: Must use suffex "Controller" after your Controller name.
+
+
+======
+VIEWS:
+====== 
+
+* Provides User-Interface of the website.
+
+* Provides the modularity required for web application development.
+
+* Located at Resources/Views
+
+* The default view page for laravel framework is Welcome.blade.php .
+
+* Separates the Controller/Application logic from the presentation logic.
+
+
+==============================
+PRACTICAL WORK IMPLEMENTATION:
+==============================
+
+* Open vs code - right click on project - click on open project in terminal - type commad in terminal:
+  php artisan make:controller HomeController
+
+* Go to HomeController class and create function for Index.
+
+   class HomeController extends Controller
+   {
+     public function Index()
+     {
+       return "Welcome to Home Controller";
+     }
+   }
+
+* Now, define route path in web.php, stored in routes directory.
+
+* Click on routes directory - click on web.php - define path
+
+* Route::get('Index','HomeController@Index');
+
+Note: Use @ to separate the Controller class from the function which exists in that Controller.
+      But, this routing technique works in Laravel 7. In laravel 8 you can use three different 
+      techniques for routing.
+
+
+Technique.1 Define complete routing path. 
+
+* Route::get('Index','App\Http\Controllers\HomeController@Index');
+
+* Note: Must use back slash \ instead of forward slash.
+
+* Now, go to web page and enter URL FolderName/ProjectName/Index .
+
+* You will see the message  "Welcome to Home Controller".
+
+
+Technique.2 In this technique you can define routing path in web.php as same as in Laravel 7. But you need to define your Controller folder
+            location using back slashes '\' in RouteServiceProvider class which is stored in Providers directory.
+
+* Click and expand app - expand providers folder - click on RouteServiceProvider.php
+
+* Scroll down and you will see this code;
+
+                 Route::middleware('web')
+                ->namespace($this->namespace)
+                ->group(base_path('routes/web.php'));
+
+* Now replace "$this->namespace" with your Controller Location.
+
+                 Route::middleware('web')
+                ->namespace('App\Http\Controllers')
+                ->group(base_path('routes/web.php'));
+
+* Now go to routes directory - click on web.php and define route as same as we did before in Laravel 7.
+
+* Route::get('Index','HomeController@Index');
+
+
+Technique.3 Use Namespace in your web.php class which is stored in route directory.
+
+* On web.php, write this code at the top to use namespace of your routing location: 
+
+* use App\Http\Controllers\HomeController;
+
+* Now, scroll down and define routing path with this syntax:
+
+* Route::('Index',[HomeController::class,'Index']);
+
+* We have used 2nd technique (RouteServiceProvider) in our project.
+
+
+~ Note: Now we will return data in views.
+
+* Now, go to resources directory - right click on views folder and add folder named as "Home".
+
+* Right click on Home folder - add new file Index.blade.php .
+
+* On Index.blade.php file, write this code <h1> This is Index Page </h1>
+
+* Go to Home Controller and write this code:
+
+
+   class HomeController extends Controller
+   {
+     //Creating Index Function
+       public function Index()
+       {
+         return view('Home.Index');
+       }
+   }
+
+* Note: In this syntax: return view(FolderName.ViewName);
+
+* Now, go to web.php file to define route.
+
+* Route::get('Index','HomeController@Index');
+
+          XXX-------------XXX
+
+* Now, go resources folder - right clik on Home folder - add new file named as "About.blade.php" .
+
+* On About.blade.php file, write this code <h1> This is About Page </h1>
+
+* Now go to Home Controller and create About function.
+
+   class HomeController extends Controller
+   {
+     //Creating About Function
+       public function About()
+       
+         return view('Home.About');
+       }
+   }
+
+* Now, go to web.php file to define route.
+
+* Route::get('Define','HomeController@About');
+
+
+          XXX-------------XXX
+
+* Now create parametarized function - Go to web.php file and define routing path with variable which will be used as parameter.
+
+* Route::get('ShowName/{name}','HomeController@ShowName');
+
+* Note: 
+        1. ShowName is url. 
+
+        2. {name} is variable which will store value.
+
+        3. Now, if you type anything after ShowName/ in uri, then it will be stored in name variable and later on
+           can be used as parameter in function to post values.
+
+* Now, go to your HomeController and write this code;
+
+    //Creating Parametarized Function to get/recieve string value from Url
+    public function ShowName($name)
+    {
+        return "Your name is: $name";
+    }
+
+          XXX-------------XXX
+
+* Now we will recieve user id by using this technique.
+
+* Go to web.php file and define routing path with variable which will be used as parameter.
+
+* Route::get('GetID/{id}','HomeController@GetID');
+
+* Now, go to your HomeController and write this code;
+
+    //Creating Parametarized Function to get/recieve Id from Url
+    public function GetID($id)
+    {
+        return "Your ID is: $id";
+    }
+
+* Note: You can perform Update and Delete operations with the help of this technique.  
