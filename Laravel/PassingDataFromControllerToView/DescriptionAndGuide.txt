@@ -1,0 +1,238 @@
+
+======================================
+PASSING DATA FROM CONTROLLERS TO VIEW:
+======================================
+
+* There are various ways for passing data from Controller to views.
+
+* We will use three techniques for passing data from Controller to Views.
+
+* Technique.1 By using the name array & associative array.
+
+* Technique.2 By using with() function.
+
+* Technique.3 By using compact() function.
+
+
+===========
+NAME ARRAY:
+===========
+
+* The name array is the array of data that is passed as the second parameter to the view function.
+
+* Syntax: return view('FolderName.ViewName' , $ArrayOfData).
+
+* First we will implement Associative array.
+
+* Associative array is based on "Key Value" pair.
+
+* Syntax Of Associative Array: return view('FolderName.ViewName' , 'Key'=>'Value' , 'Key'=>'Value' , 'Key'=>'Value');
+
+
+---------------
+---------------
+HomeController:
+---------------
+---------------
+ 
+    public function Index()
+    {
+       $data['Names']  =  ['Ali','Usman','Zain'];
+       return view('Home.Index' , ['name1'=>'Ali' , 'name2'=>'Usman' , 'name3'=>'Zain']);
+    }
+
+----------------
+----------------
+Index.blade.php:
+----------------
+----------------
+
+* We will call Associative array keys as a variable. 
+
+ <ol> 
+     <li> {{ $name1 }} </li>
+     <li> {{ $name2 }} </li>
+     <li> {{ $name3 }} </li>
+</ol>
+
+Note: Must use blade syntax {{ }} to call array or any variable.
+
+--------
+--------
+Web.php:
+--------
+--------
+
+Route::get('Index','HomeController@Index');
+
+Note: Now, we will pass multiple array data by using single dimensional array.
+
+
+---------------
+---------------
+HomeController:
+---------------
+---------------
+
+    public function Index()
+    {
+        $data['Fruits'] = ['Apple','Banana','Grapes'];
+        $data['Sports'] = ['Cricket','Hockey','Football'];
+        $data['Colors'] = ['Black','Gray','Brown'];
+        return view('Home.Index',$data);
+    }
+
+
+----------------
+----------------
+Index.blade.php:
+----------------
+----------------
+
+Note: We will use array names and index numbers to call array values.
+
+     <h1> For Fuits </h1>
+<ol>
+
+    <li> {{ $Fruits[0] }} </li>
+    <li> {{ $Fruits[1] }} </li>
+    <li> {{ $Fruits[2] }} </li>
+
+</ol>
+
+<br>
+
+     <h1> For Sports </h1>
+<ol>
+
+    <li> {{ $Sports[0] }} </li>
+    <li> {{ $Sports[1] }} </li>
+    <li> {{ $Sports[2] }} </li>
+
+</ol>
+
+<br>
+
+<h1> For Colors </h1>
+<ol>
+
+    <li> {{ $Colors[0] }} </li>
+    <li> {{ $Colors[1] }} </li>
+    <li> {{ $Colors[2] }} </li>
+
+</ol>
+
+--------
+--------
+Web.php:
+--------
+--------
+
+Route::get('Index','HomeController@Index');
+
+
+================
+WITH() FUNCTION:
+================
+
+* We can also use the with() function to pass the data to views.
+
+* with() function also uses "Key Value" pair.
+
+* Note: Key name can be any name. and Value can be variable or object.
+
+* The with() function contains two parameters:
+  1. 1st parameter is Key.
+  2. 2nd parameter is Value which can be variable or object.
+
+* Syntax: return view('FolderName.ViewName')->with('KeyName' , Variable);
+
+---------------
+---------------
+HomeController:
+---------------
+---------------
+
+    public function Index()
+    {
+        $name = "Usman";
+        return view('Home.Index')->with('Username',$name);
+    }
+
+----------------
+----------------
+Index.blade.php:
+----------------
+----------------
+
+<h1> My Name is: {{ $Username }} </h1>
+
+Note: We have accessed Key as variable name.
+
+--------
+--------
+Web.php:
+--------
+--------
+
+Route::get('Index','HomeController@Index');
+
+
+Note: You can't comment blade syntax {{ }} in the same way you comment html code.
+      If you want to comment blade syntax then you need to use this syntax {{-- --}}.
+
+Example: 
+
+ {{--
+
+  <!-- <h1> My name is {{ $Username }} </h1> -->
+
+ --}}
+
+
+===================
+COMPACT() FUNCTION:
+===================
+
+* The compact function is also used to pass data from controller to views.
+
+* It contains a single parameter which is the name of the variable in single quotation. 'VariableName'
+
+* You can also pass multiple data by using compact function.
+
+* Syntax: return view('FolderName.ViewName' , compact('VariableName'));
+
+
+---------------
+---------------
+HomeController:
+---------------
+---------------
+
+    public function Index()
+    {
+        $name = "Usman";
+        $age = 22;
+        $gender = "Male";
+        return view('Home.index' , compact('name','age','gender'));
+    }
+
+
+----------------
+----------------
+Index.blade.php:
+----------------
+----------------
+
+     <h1> My name is {{ $name }} </h1>
+     <h1> My age is {{ $age }} </h1>
+     <h1> My gender is {{ $gender }} </h1>
+
+
+--------
+--------
+Web.php:
+--------
+--------
+
+Route::get('Index','HomeController@Index');

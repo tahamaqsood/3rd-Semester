@@ -1,0 +1,35 @@
+==============
+Snippet Code.1
+==============
+
+ public function Index()
+ {
+   $data['Names'] = ['Usman','Raheel','Zain'];
+   return view('Home.Index',$data);
+ }
+
+==============
+Snippet Code.2
+==============
+
+ public function Index()
+ {
+   $data['Names'] = ['Usman','Raheel','Zain'];
+   $data['Fruits'] = ['Apple','Banana','Grapes'];
+   $data['Colors'] = ['Black','Gray','Brown'];
+   return view('Home.Index',$data);
+ }
+
+Note: Use Snippet Code.2 if you want to pass multiple data from Controller to View.
+
+==============
+Snippet Code.3
+==============
+
+ public function Index()
+ {
+   $data['Names'] = ['Usman','Raheel','Zain'];
+   return view('Index',$data);
+ }
+
+Note: Use Snippet Code.3 if you have not created Home folder separately in Views folder.

@@ -1,0 +1,22 @@
+
+==============
+Snippet Code.1
+==============
+
+ public function Index()
+ {
+   $name = "Usman";
+   return view('Home.Index')->with('Username' , $name);
+ }
+
+==============
+Snippet Code.2
+==============
+
+ public function Index()
+ {
+   $name = "Usman";
+   return view('Index')->with('Username' , $name);
+ }
+
+Note: Use Snippet Code.2 if you have not created Homer folder separately in Views Folder. 

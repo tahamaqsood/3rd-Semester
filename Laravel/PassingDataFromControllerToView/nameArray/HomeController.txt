@@ -1,0 +1,17 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    
+    public function Index()
+    {
+        $data['Fruits'] = ['Apple','Banana','Grapes'];
+        $data['Sports'] = ['Cricket','Hockey','Football'];
+        $data['Colors'] = ['Black','Gray','Brown'];
+        return view('Home.Index',$data);
+    }
+}
