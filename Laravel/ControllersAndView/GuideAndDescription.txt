@@ -155,7 +155,7 @@ Technique.3 Use Namespace in your web.php class which is stored in route directo
 
           XXX-------------XXX
 
-* Now, go resources folder - right clik on Home folder - add new file named as "About.blade.php" .
+* Now, go resources folder - right click on Home folder - add new file named as "About.blade.php" .
 
 * On About.blade.php file, write this code <h1> This is About Page </h1>
 
@@ -172,7 +172,7 @@ Technique.3 Use Namespace in your web.php class which is stored in route directo
 
 * Now, go to web.php file to define route.
 
-* Route::get('Define','HomeController@About');
+* Route::get('About','HomeController@About');
 
 
           XXX-------------XXX
