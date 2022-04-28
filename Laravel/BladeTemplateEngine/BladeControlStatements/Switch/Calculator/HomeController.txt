@@ -1,0 +1,16 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+   public function Index()
+   {
+       $num1 = 10;
+       $num2 = 5;
+       $sign = "/";
+       return view('Home.Index' , compact('num1' , 'num2' , 'sign'));
+   }
+}
