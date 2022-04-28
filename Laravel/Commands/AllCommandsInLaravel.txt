@@ -2,7 +2,7 @@
   ===================
   AVAILABLE COMMANDS:
   ===================
-
+  
   clear-compiled         Remove the compiled class file
 
   completion             Dump the shell completion script
