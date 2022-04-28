@@ -1,0 +1,424 @@
+
+  ========================
+  BLADE TEMPLATING ENGINE:
+  ========================
+
+* Blade template engine is used to simplify the process of creating views.
+
+* It makes the syntax writing very simple & easy to understand.
+
+* The blade template engine provides its own structure such as Conditional Statements.
+
+* In laravel, view is also called Blade Template.
+
+* To create a blade template, you just need to create a view file and save it with a .blade.php
+  extension instead of .php extension.
+
+* The main advantage of using the blade template is that we can create the master template,
+  which can be extended by other files. 
+
+* Note: Master template is basically a layout view file which contains Navigation bar and
+  footer and is very common among all web pages.
+
+* Blade is a light-weight template language that provides multiple short codes & improves
+  the speed of your web application.
+
+  ==========================================================
+~ R E A S O N S   T O   U S E   B L A D E   T E M P L A T E: 
+  ==========================================================
+
+
+  Reason.1 
+  ================
+  DISPLAYING DATA:
+  ================
+
+* If you want to print the value of a variable, then you can do so by simply enclosing the
+  variable within the curly brackets {{  }}.
+
+* Syntax: {{ $Variable }}
+
+* In blade template, we do not need to write code like this: <?php echo $Variable; ?>.
+
+
+  =========================
+  PRACTICAL IMPLEMENTATION:
+  =========================
+
+* Create your laravel project - Enter command in terminal: laravel new MyProject.
+
+* Create your controller - enter command in terminal: php artisan make:controller HomeController
+
+* Right click on MyProject - Reveal in File explorer
+
+* Open MyProject folder - open public folder - copy .htaccess file and paste it in MyProject folder.
+
+* Copy server file and paste it in same destination & rename it from "server - Copy" to "Index".
+
+* Come back to Vs Code - Right click on Views folder - Add new Folder named as "Home".
+
+* Right click on Home folder - add new file "Index.blade.php".
+
+* Note: We will pass variable from Controller to View by using with() function.
+
+
+  ---------------
+  ---------------
+  HomeController:
+  ---------------
+  ---------------
+
+ public function Index()
+ {
+   $name = "Usman";
+   return view('Home.Index')->with('MyName' , $name);
+ }
+
+  --------
+  --------
+  Web.php:
+  --------
+  --------
+
+ Route::get('Index','HomeController@Index');
+
+  ----------------
+  ----------------
+  Index.blade.php:
+  ----------------
+  ----------------
+
+* Accessing Key 'MyName' as a variable '$MyName' 
+
+* Printing variable by using php syntax:
+
+  <?php echo $MyName; ?>
+
+* Printing variable by using Blade syntax:
+  {{ $MyName }}
+
+
+  Reason.2 
+  =================================
+  BLADE TEMPLATE CONTROL STATEMENT:
+  =================================
+
+* Blade templating also provides the control statements in laravel as well as shortcuts for
+  the control statements.
+
+  i)   @if @else
+  ii)  @if @elseif @if
+  iii) @switch
+
+
+  =======================
+  IMPLEMENTING @if @else:
+  =======================
+
+  ---------------
+  ---------------
+  HomeController:
+  ---------------
+  ---------------
+
+ public function Index()
+ {
+   $name = "Usman";
+   return view('Home.Index')->with('MyName' , $name);
+ }
+  
+
+  ----------------
+  ----------------
+  Index.blade.php:
+  ----------------
+  ----------------
+
+ @if($MyName == "Usman")
+ <h2> Hello Usman </h2>
+
+ @else
+ <h2> You are not Usman </h2>
+ @endif
+
+* Note: In Blade Template, Control Statements has no body/block of code { }.
+        To end control statements, use @end and your statement name.
+        For Example: @endif , @endswitch etc.  
+
+
+  ===============================
+  IMPLEMENTING @if @elseif @else:
+  ===============================
+
+  ---------------
+  ---------------
+  HomeController:
+  ---------------
+  ---------------
+
+ public function Index()
+ {
+   $percentage = 92;
+   return view('Home.Index')->with('per' , $percentage);
+ }
+
+  --------
+  --------
+  Web.php:
+  --------
+  --------
+
+ Route::get('Index','HomeController@Index');
+
+  ----------------
+  ----------------
+  Index.blade.php:
+  ----------------
+  ----------------
+
+ @if($per >= 80)
+ <h2> A-1 Grade </h2>
+
+ @elseif($per >= 70)
+ <h2> A Grade </h2>
+
+ @elseif($per >= 60)
+ <h2> B Grade </h2>
+
+ @elseif($per >= 50)
+ <h2> C Grade </h2>
+
+ @elseif($per >= 40)
+ <h2> D Grade </h2>
+
+ @else
+ <h2> Failed </h2>
+ @endif
+
+
+  ====================
+  IMPLEMENTING @switch
+  ====================
+
+  ---------------
+  ---------------
+  HomeController:
+  ---------------
+  ---------------
+
+ public function Index()
+ {
+   $drink = "Sting";
+   return view('Home.Index')->with('drink' , $drink);
+ }
+
+  --------
+  --------
+  Web.php:
+  --------
+  --------
+
+ Route::get('Index','HomeController@Index');
+
+  ----------------
+  ----------------
+  Index.blade.php:
+  ----------------
+  ----------------
+ 
+ @switch($drink)
+ @case("Pepsi")
+ <h2> You have selected Pepsi </h2>
+ @break
+
+ @case("Sprite")
+ <h2> You have selected Sprite </h2>
+ @break
+
+ @case("Mirinda")
+ <h2> You have selected Mirinda </h2>
+ @break
+
+ @case("Sting")
+ <h2> You have selected Sting </h2>
+ @break
+
+ @case("Pakola")
+ <h2> You have selected Pakola </h2>
+ @break
+
+ @case("Fresh Lime")
+ <h2> You have selected Frsh Lime </h2>
+ @break
+
+ @Default
+ <h2> Your drink is not available right now. </h2>
+ @break
+ @endswitch
+          
+
+  Reason.3 
+  ============
+  BLADE LOOPS:
+  ============
+
+* The blade templating engine provide loops such as:
+  i)   @for loop
+  ii)  @foreach loop
+  iii) @while loop
+
+* These directives is used to create the php loop equivalent statements. 
+
+
+  ===========================
+  IMPLEMENTING @foreach LOOP:
+  ===========================
+
+  ---------------
+  ---------------
+  HomeController:
+  ---------------
+  ---------------
+
+ public function Index()
+ {
+   $data['Fruits'] = ['Apple' , 'Banana' , 'Mango' , 'Orange' , 'Grapes'];
+   return view('Home.Index' , $data);
+ }
+
+  --------
+  --------
+  Web.php:
+  --------
+  --------
+
+ Route::get('Index','HomeController@Index');
+
+  ----------------
+  ----------------
+  Index.blade.php:
+  ----------------
+  ----------------
+
+ @foreach($Fruits as Fruit)
+ <h2> {{ $Fruit }} </h2>
+ @endforeach
+
+* Note: In Blade Template, Loops syntax has no body/block of code { }.
+        To end loop, use @end and your loop name.
+        For Example: @endfor , @endforeach , @endwhile etc.  
+
+
+  =======================
+  IMPLEMENTING @for LOOP:
+  =======================
+
+  --------
+  --------
+  Web.php:
+  --------
+  --------
+
+ Route::get('Index','HomeController@Index');
+
+  ----------------
+  ----------------
+  Index.blade.php:
+  ----------------
+  ----------------
+
+ @for($i=0; $i<=10; $i++)
+ <h2> {{ $i }} </h2>
+
+
+  =========================
+  IMPLEMENTING @while LOOP:
+  =========================
+
+  --------
+  --------
+  Web.php:
+  --------
+  --------
+
+ Route::get('Index','HomeController@Index');
+
+  ----------------
+  ----------------
+  Index.blade.php:
+  ----------------
+  ----------------
+
+* Note: If you are using Blade syntax & you need to declare & initialize php variable, then you need to use this syntax:
+  @php $variable = "YourValue"; @endphp
+
+
+  ===============
+  CODE SNIPPET:01
+  ===============
+@php $i = 0; @endphp
+
+@while($i<=10)
+
+<h2> {{ $i }} </h2>
+
+@php $i++ @endphp
+
+@endwhile
+
+
+  ===============
+  CODE SNIPPET:02
+  ===============
+@php $i = 0; @endphp
+
+@while($i<=10)
+
+<h2> {{ $i++ }} </h2>
+
+@endwhile
+
+
+  Reason.4 
+  =======================
+  NULL COALESCE OPERATOR:
+  =======================
+
+* In blade templating engine, the syntax of Null Coalesce operator is very simple and can be written as:
+
+* {{ $variable?? "Default Value" }}
+
+
+  ====================================
+  IMPLEMENTING NULL COALESCE OPERATOR:
+  ====================================
+
+  ---------------
+  ---------------
+  HomeController:
+  ---------------
+  ---------------
+
+ public function Index()
+ {
+   $name = "Usman";
+   return view('Home.Index')->with('name1' , $name);
+ }
+
+  --------
+  --------
+  Web.php:
+  --------
+  --------
+
+ Route::get('Index','HomeController@Index');
+
+  ----------------
+  ----------------
+  Index.blade.php:
+  ----------------
+  ----------------
+
+ {{ $name1??"Unknown" }}
+
+* Note: In next leacture, we will learn about master template.
