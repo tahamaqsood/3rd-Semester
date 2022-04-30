@@ -1,0 +1,250 @@
+
+=====================================================
+MASTER PAGE LAYOUT OR TEMPLATE INHERITANCE IN LARAEL:
+=====================================================
+
+* Master page layout defines the common layout across all the web pages.
+
+* All the web applications have the master page layout to define the common layout across all the
+  all the web pages.
+
+* The blade templating engine defines the master layout that can be extended by all the web pages.
+
+* The master page layout is available in the /resources/views/layouts/ directory.
+
+* Note: You need to create layouts folder inside views folder manually.
+        Your master view file must have an extension of ".blade.php"
+        because blade template engine (blade syntax) has to be implemented
+        in your master layout.
+
+
+=========================
+PRACTICAL IMPLEMENTATION:
+=========================
+
+* Open vs code - create controller by entering command: php artisan make:controller HomeController.
+
+* Remove public from URL and hide .env file. (Already learned in previous lecture).
+
+---------------
+---------------
+HomeController:
+---------------
+---------------
+
+ public function Index()
+ { 
+   return view('Home.Index');
+ }
+
+
+ public function About()
+ { 
+   return view('Home.About');
+ }
+
+
+ public function Contact()
+ { 
+   return view('Home.Contact');
+ }
+
+
+* Expand resources directory - right click on views folder - add new folder named as "Home".
+
+* Right click on Home folder - add new file named as "Index.blade.php".
+
+* Right click on Home folder - add new file named as "About.blade.php".
+
+* Right click on Home folder - add new file named as "Contact.blade.php".
+
+--------
+--------
+Web.php:
+--------
+--------
+
+Route::get('Index','HomeController@Index');
+Route::get('About','HomeController@About');
+Route::get('Contact','HomeController@Contact');
+
+
+* Now, right click on views folder - add new folder named as "layouts".
+
+* Right click on layouts folder - add new file named as "master.blade.php".
+
+* On master layout file - type html:5 and enter to generate html code.
+
+-----------------
+-----------------
+Master.blade.php:
+-----------------
+-----------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+     <h1>This is Master Page</h1>
+
+</body>
+</html>
+
+* Now, we will implement bootstrap in master page, so we wll be able to use bootstrap classes 
+  in our Header, navigation bar and footer which is a common part of all web pages.
+
+* Note: Your all CSS & JS files should be in public folder.
+
+* Download bootstrap latest version - copy css and js folder.
+
+* Right click on public folder - add new folder named as bootstrap.
+
+* Open bootstrap folder and paste css & js files.
+
+* Now download jQuery - go to google - search Jquery - open 1st web.
+
+* click on download and scroll down - click on "Download the compressed production jQuery".
+
+* Select all the code - copy code.
+
+* Expand public folder - open bootstrap folder - right click on js folder - add new file named as "query.js".
+
+* In jquery.js file, paste all the code.
+
+* Now, link bootstrap and js files.
+
+* Link bootstrap and js files by giving location in href(Hyper reference) and src(Source).
+
+-----------------
+-----------------
+Master.blade.php:
+-----------------
+-----------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Bootstrap Css File link -->
+    <link rel="stylesheet" href="public/bootstrap/css/bootstrap.min.css">
+
+</head>
+<body>
+
+     <h1>This is Master Page</h1>
+
+      <!-- jQuery File Link -->
+     <script src="public/bootstrap/js/jquery.js"></script>
+
+     <!-- Bootstrap Js File Link -->
+     <script src="public/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
+
+* Now, on master page type something . heading tag.
+
+-----------------
+-----------------
+Master.blade.php:
+-----------------
+-----------------
+
+<h1>This is Master Page</h1>
+
+* Now, we want the h1 tag to be displayed on every web page.
+
+* Use yield function.
+
+
+<h1>This is Master Page</h1>
+@yield('content')
+
+* Note: Now, all the content of Index, About, Contact pages will replace yield function.
+  i.e: All content of all web pages will be shown in place of @yield('content').
+  All the code you write in section function, the output of that code will be displayed
+  in place of yield('content').
+
+
+-----------------
+-----------------
+Master.blade.php:
+-----------------
+-----------------
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="public/bootstrap/css/bootstrap.min.css">
+</head>
+<body>
+
+     <h1>This is Master Page</h1>
+     @yield('content')
+
+     <script src="public/bootstrap/js/jquery.js"></script>
+     <script src="public/bootstrap/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+
+----------------
+----------------
+Index.blade.php:
+----------------
+----------------
+<!-- @extends function syntax: @extends('FolderName/WebPageName') -->
+
+@extends('layouts/master')
+
+@section('content')
+<h1> Index Page </h1>
+@endsection
+
+* Note: Heading "Index Page will be shown in place of yield('content') function."
+
+
+----------------
+----------------
+About.blade.php:
+----------------
+----------------
+
+@extends('layouts/master')
+
+@section('content')
+<h1> About Page </h1>
+@endsection
+
+* Note: Heading "About Page will be shown in place of yield('content') function."
+
+------------------
+------------------
+Contact.blade.php:
+------------------
+------------------
+
+@extends('layouts/master')
+
+@section('content')
+<h1> Contact Page </h1>
+@endsection
+
+* Note: Heading "Contact Page will be shown in place of yield('content') function."
+
+* Note: You can implement header , navigation bar and footer on all web pages by
+        using this method.
