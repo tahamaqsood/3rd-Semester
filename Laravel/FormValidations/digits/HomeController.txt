@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function MyForm()
+    {
+        return view("Home.MyForm");
+    }
+
+    public function FormValidate(Request $req)
+    {
+          
+        $req->validate([
+            'age' => 'required | digits:2'
+            
+    ],
+[
+    'age.required' => 'Age is required',
+    'age.digits' => 'Your age must be in 2 digits'
+
+]);
+        return view("Home.FormValidate");
+    }
+}

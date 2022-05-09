@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function MyForm()
+    {
+        return view("Home.MyForm");
+    }
+
+    public function FormValidate(Request $req)
+    {
+          
+        $req->validate([
+            'name' => 'required | not_in:Usman,Raheel'
+        ],
+    [
+        'name.required' => 'Name is compusolry',
+        'name.not_in' => 'This user is blacklisted'
+    ]);
+        return view("Home.FormValidate");
+    }
+}

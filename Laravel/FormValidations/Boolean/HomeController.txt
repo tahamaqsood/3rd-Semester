@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function MyForm()
+    {
+        return view("Home.MyForm");
+    }
+
+    public function FormValidate(Request $req)
+    {
+          
+        $req->validate([
+            'bool' => 'required | boolean'
+            
+    ],
+[
+    'bool.required' => 'Must enter boolean value',
+    'bool.boolean' => 'This field accepts only boolean value in the form of digits'
+
+]);
+        return view("Home.FormValidate");
+    }
+}
