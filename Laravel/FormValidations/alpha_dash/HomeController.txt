@@ -19,7 +19,7 @@ class HomeController extends Controller
         ],
     [
         'username.required' => 'username is required',
-        'username.alpha_dash' => 'Username contains only letters,numbers and @'
+        'username.alpha_dash' => 'Username contains only letters,numbers and underscore _'
     ]);
         return view("Home.FormValidate");
     }
