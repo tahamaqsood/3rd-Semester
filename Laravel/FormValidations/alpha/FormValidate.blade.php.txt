@@ -1,0 +1,5 @@
+<h1> Here is My Form Validations </h1>
+
+<br>
+
+<h3> We are applying validations rules only for learning purpose, so we will not post form's data to display its result right here. </h3>

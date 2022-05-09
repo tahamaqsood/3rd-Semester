@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function MyForm()
+    {
+        return view("Home.MyForm");
+    }
+
+    public function FormValidate(Request $req)
+    {
+          
+        $req->validate([
+            'fname' => 'required | alpha'
+        ],
+    [
+        'fname.required' => 'first name is required',
+        'fname.alpha' => 'This field contains alphabets only.'
+    ]);
+        return view("Home.FormValidate");
+    }
+}
