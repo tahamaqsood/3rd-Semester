@@ -1,0 +1,14 @@
+
+<form action="{{ url('/data') }}" method="post">
+@csrf
+
+<input type="text" name="name" placeholder="Enter Name">
+
+@error('name')
+<span style="color:red;"> {{ $message }} </span>
+@enderror
+<br>
+
+<input type="submit" value="Submit">
+
+</form>

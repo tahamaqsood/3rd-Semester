@@ -1,0 +1,20 @@
+
+<form action="{{ url('/data') }}" method="post">
+@csrf
+
+<input type="password" name="pass" placeholder="Enter Password">
+
+@error('pass')
+<span style="color:red;"> {{ $message }} </span>
+@enderror
+<br>
+
+<input type="password" name="cpass" placeholder="Re-Enter Password">
+@error('cpass')
+<span style="color:red;"> {{ $message }} </span>
+@enderror
+<br>
+
+<input type="submit" value="Submit">
+
+</form>

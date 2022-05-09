@@ -1,0 +1,31 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function MyForm()
+    {
+        return view("Home.MyForm");
+    }
+
+    public function FormValidate(Request $req)
+    {
+          
+        $req->validate([
+            'pass' => ['required', 'regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/'],
+            'cpass' => 'required',
+            'cpass' => 'same:pass'
+    ],
+[
+    'pass.required' => 'Password is required',
+    'pass.regex' => 'Your password must contain uppercase, lowercase, digits, 8 letters and symbols.',
+    'cpass.required' => 'Confirm Password is required',
+    'cpass.same' => 'Password and Confirm Password is not identical'
+
+]);
+        return view("Home.FormValidate");
+    }
+}

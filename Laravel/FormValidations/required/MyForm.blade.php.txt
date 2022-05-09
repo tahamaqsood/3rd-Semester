@@ -1,0 +1,31 @@
+{{--
+<!-- 
+
+=============================
+Form Validation For Required:
+=============================
+
+We will use @error function to display error message for specific field.
+Error message is stored in $message variable. Therefore we need to call
+$message variable within blade syntax. 
+      
+Syntax: @error('FieldName')
+        {{ $message }}
+        @enderror
+
+-->
+--}}
+
+<form action="{{ url('/data') }}" method="post">
+@csrf
+
+<input type="text" name="name" placeholder="Enter your name">
+
+@error('name')
+<span style="color:red"> {{ $message }} </span>
+@enderror
+<br>
+
+<input type="submit" value="Submit">
+
+</form>

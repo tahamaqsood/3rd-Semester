@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function MyForm()
+    {
+        return view("Home.MyForm");
+    }
+
+    public function FormValidate(Request $req)
+    {
+          
+        $req->validate([
+            'name' => 'required | starts_with:A,B,C,D,a,b,c,d'
+            
+    ],
+[
+    'name.required' => 'Name is required',
+    'name.starts_with' => 'Your name must starts with these letters A,B,C,D  a,b,c,d'
+
+]);
+        return view("Home.FormValidate");
+    }
+}

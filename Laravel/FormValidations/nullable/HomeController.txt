@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function MyForm()
+    {
+        return view("Home.MyForm");
+    }
+
+    public function FormValidate(Request $req)
+    {
+          
+        $req->validate([
+            'name' => 'required',
+            'nickname' => 'nullable'
+        ],
+    [
+        'name.required' => 'Name is compulsory'
+    ]);
+        return view("Home.FormValidate");
+    }
+}

@@ -1,0 +1,28 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function MyForm()
+    {
+        return view("Home.MyForm");
+    }
+
+    public function FormValidate(Request $req)
+    {
+          
+        $req->validate([
+            'name' => 'required | size:5'  //Size used for fixed values
+            
+    ],
+[
+    'name.required' => 'Name is required',
+    'name.size' => 'Your name must be equals to 5 letters.'
+
+]);
+        return view("Home.FormValidate");
+    }
+}
