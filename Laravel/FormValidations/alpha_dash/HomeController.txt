@@ -1,0 +1,26 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function MyForm()
+    {
+        return view("Home.MyForm");
+    }
+
+    public function FormValidate(Request $req)
+    {
+          
+        $req->validate([
+            'username' => 'required | alpha_dash'
+        ],
+    [
+        'username.required' => 'username is required',
+        'username.alpha_dash' => 'Username contains only letters,numbers and @'
+    ]);
+        return view("Home.FormValidate");
+    }
+}
