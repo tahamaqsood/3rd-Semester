@@ -20,7 +20,7 @@ class HomeController extends Controller
             'email' => 'required | email',
             'pass' => ['required', 'regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/'],
             'cpass' => 'required | same:pass',
-            'salary' => 'required | digits:5'
+            'salary' => 'required | numeric | digits:5'
         ],
     [
         // For Name
@@ -53,9 +53,10 @@ class HomeController extends Controller
 
         // For Salary
         'salary.required' => 'Salary is required',
+        'salary.numeric' => 'Salary must be in integer format',
         'salary.digits' => 'Only 5 digits salary is acceptable'
-
     ]);
-        return view('Home.FormValidate');
+        $data['FormData'] = $req->all();
+        return view('Home.FormValidate',$data);
     }
 }
