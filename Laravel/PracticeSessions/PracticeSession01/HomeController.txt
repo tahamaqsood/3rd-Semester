@@ -1,0 +1,61 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+
+class HomeController extends Controller
+{
+    public function MyForm()
+    {
+        return view('Home.MyForm');
+    }
+
+    public function FormValidate(Request $req)
+    {
+        $req->validate([
+            'name' => 'required | min:3 | max:8 | alpha',
+            'age' => 'required | numeric | between:12,40',
+            'username' => 'required | alpha_dash | max:12',
+            'email' => 'required | email',
+            'pass' => ['required', 'regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{6,}$/'],
+            'cpass' => 'required | same:pass',
+            'salary' => 'required | digits:5'
+        ],
+    [
+        // For Name
+        'name.required' => 'You cannot left this field empty', 
+        'name.min' => 'Your name must have minumum 3 letters at least',
+        'name.max' => 'Your name should be less than 8 letters',
+        'name.alpha' => 'This field contains alphabets only',
+
+        // For Age
+        'age.required' => 'Age is required',
+        'age.numeric' => 'Age must be in integer format.',
+        'age.between' => 'Your age must be in between 12 to 40 for joining our platform',
+
+        // For Username
+        'username.required' => 'Username is required',
+        'username.alpha_dash' => 'Username contains alphabets, numbers and underscore _ only',
+        'username.max' => 'Username should be less than 12 characters',
+
+        // For Email
+        'email.required' => 'Email is required',
+        'email.email' => 'Invalid email',
+
+        // For Password
+        'pass.required' => 'Password is required',
+        'pass.regex' => 'Your password must contain uppercase, lowercase, 8 letters, digits and symbols @',
+
+        // For Confirm Password
+        'cpass.required' => 'Confirm password is required',
+        'cpass.same' => 'Password and Confirm password is not identical',
+
+        // For Salary
+        'salary.required' => 'Salary is required',
+        'salary.digits' => 'Only 5 digits salary is acceptable'
+
+    ]);
+        return view('Home.FormValidate');
+    }
+}
