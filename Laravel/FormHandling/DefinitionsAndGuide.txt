@@ -175,7 +175,7 @@ PRACTICAL IMPLEMENTATION:
 
 * Before creating form, you need to follow three steps;
 
-* Step.1: Type command in terminal: composer required laravelcollective/html and enter.
+* Step.1: Type command in terminal: composer require laravelcollective/html and enter.
 
 * Step.2: Go to config directory - click on app.php file - add this namespace in providers array.
           Collective\Html\HtmlServiceProvider::class,
