@@ -1,0 +1,15 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Employee extends Model
+{
+    // Declaring Employee's properties in Employee Model Class
+    public $id;
+    public $name;
+    public $age;
+    public $gender;
+}

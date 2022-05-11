@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Http\Controllers;
+
+use Illuminate\Http\Request;
+// Using namespace for accessing Employee Model Class
+use App\Models\Employee;
+
+class HomeController extends Controller
+{
+    public function Index()
+    {
+        // Making object of Employee Model Class
+        $emp = new Employee();
+
+        // Initializing Employee's properties
+        $emp->id = 1;
+        $emp->name = "Usman Hameed";
+        $emp->age = 24;
+        $emp->gender = "Male";
+
+        // Sending Model Class properties from Controller to View by using Compact function.
+        return view("Home.Index",compact('emp',$emp));
+    }
+}

@@ -1,0 +1,100 @@
+
+===============================
+WORKING WITH MODELS IN LARAVEL:
+===============================
+
+======
+GUIDE:
+======
+
+* Open your project in terminal - create Home Controller by entering command: php artisan make:controller HomeController.
+
+* Create model class by entering command: - php artisan make:model Employee.
+
+* Your Model Class named as "Employee.php" is located at App\Models directory.
+
+* In Models folder, you will see Pre-defind Model class named as "User.php".
+
+-------------
+-------------
+Employee.php: 
+-------------
+-------------
+
+* Here, we will declare variables which are actually properties of Employees.   
+
+class Employee extends Model
+{
+    // Declaring Employee's properties in Employee Model Class
+    public $id;
+    public $name;
+    public $age;
+    public $gender;
+}
+
+---------------
+---------------
+HomeController: 
+---------------
+---------------
+
+
+* Must use namespace in order to access model class.
+
+* You can add namespace of Model class by giving complete path/location of model class.
+
+* This namespace is basically a reference of model class.
+
+* We will add namespace by using "use" keyword.
+
+use App\Models\Employee;
+
+class HomeController extends Controller
+{
+    public function Index()
+    {
+        // Making object of Employee Model Class
+        $emp = new Employee();
+
+        // Initializing Employee's properties
+        $emp->id = 1;
+        $emp->name = "Usman Hameed";
+        $emp->age = 24;
+        $emp->gender = "Male";
+
+        // Sending Model Class properties from Controller to View by using Compact function.
+        return view("Home.Index",compact('emp',$emp));
+    }
+}
+
+
+* Expand resources directory - right click on views folder - add new folder named as "Home".
+
+* Right click on Home - add new files named as "Index.blade.php".
+
+* Now, define the route.
+
+
+--------
+--------
+Web.php: 
+--------
+--------
+
+Route::get('/Index','HomeController@Index');
+
+
+* Now, call all variables in Index view.
+
+
+----------------
+----------------
+Index.blade.php: 
+----------------
+----------------
+
+<!-- Calling Variables -->
+<h1> Employee id is: {{ $emp->id }} </h1>
+<h1> Employee name is: {{ $emp->name }} </h1>
+<h1> Employee age is: {{ $emp->age }} </h1>
+<h1> Employee gender is: {{ $emp->gender }} </h1>

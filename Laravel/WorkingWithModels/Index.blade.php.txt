@@ -1,0 +1,5 @@
+<!-- Calling Variables -->
+<h1> Employee id is: {{ $emp->id }} </h1>
+<h1> Employee name is: {{ $emp->name }} </h1>
+<h1> Employee age is: {{ $emp->age }} </h1>
+<h1> Employee gender is: {{ $emp->gender }} </h1>
