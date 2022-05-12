@@ -63,7 +63,7 @@ class HomeController extends Controller
         $emp->gender = "Male";
 
         // Sending Model Class properties from Controller to View by using Compact function.
-        return view("Home.Index",compact('emp',$emp));
+        return view("Home.Index",compact('emp'));
     }
 }
 
