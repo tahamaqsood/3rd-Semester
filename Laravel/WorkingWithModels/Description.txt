@@ -98,3 +98,5 @@ Index.blade.php:
 <h1> Employee name is: {{ $emp->name }} </h1>
 <h1> Employee age is: {{ $emp->age }} </h1>
 <h1> Employee gender is: {{ $emp->gender }} </h1>
+
+* Note: That's how Model's properties can be accessed in views. MVC design pattern sums up!
