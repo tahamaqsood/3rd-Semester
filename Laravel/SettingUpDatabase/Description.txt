@@ -39,7 +39,7 @@ Step.2 (Define An Eloquent Model)
 * For creating Model, use this command: php artisan make:model ModelName.
 
 * Make sure to set your model class name in a singular form. So your table name will be
-  set in a plural form automatically by through Mapping.
+  set in a plural form automatically through Mapping.
 
 
 => Note: If you want to create migration of model then, use this command:
@@ -106,7 +106,7 @@ public function up()
 }
 
 
-=> Note: This timestmps(); function creates two columns;
+=> Note: This timestamps(); function creates two columns;
 1) Created_at
 2) Updated_at
 
