@@ -1,0 +1,208 @@
+
+======================================================
+SETTING UP DATABASE, TABLES AND MIGRATIONS IN LARAVEL:
+======================================================
+
+Step.1 (Modification For Database Purpose) 
+
+* Before getting started, make sure to configure a database connection in .env file.
+
+* You will see this code in .env file:
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+
+
+=> Modify database name and set your own database name like this: 
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=USMAN
+DB_USERNAME=root
+DB_PASSWORD=
+
+* Now, go to mysqli and create database with the same name you defined in .env file.
+
+* CREATE DATABASE USMAN;
+
+* Now, to get started, create an Eloquent model (Model Class). Models typically live
+  in the app directory.
+
+
+Step.2 (Define An Eloquent Model)
+
+* For creating Model, use this command: php artisan make:model ModelName.
+
+* Make sure to set your model class name in a singular form. So your table name will be
+  set in a plural form automatically by through Mapping.
+
+
+=> Note: If you want to create migration of model then, use this command:
+         php artisan make:model ModelName -m
+
+
+* By using this command you can create not just Model class but also create migration file
+  related to your model.
+
+* All migrations are located in database > migrations directory.
+
+* Now, right click on your project - open in terminal - use this command: php artisan make:model Employee -m
+
+* This command has created model class in app directory and migration file in database > migration directory.
+
+-------------------
+-------------------
+EmployeesMigration:
+-------------------
+-------------------
+
+* You will see two functions,
+1) up function
+2) down function
+
+* In up function, you need to define how many columns/attributes you want in your table along with their data types.
+
+* In down function, if the table is already exist in database with the name then this function will drop that table.
+
+* You will see this code in up function:
+
+public function up()
+{
+  Schema::create('employees', function (Blueprint $table) {
+     $table->id();
+     $table->timestamps();
+  });
+}
+
+
+=> Note: Employees table is stored in $table object
+
+
+Step.3 (Define properties in up function that you want in your table) 
+
+* Write the columns you want in your table along with their data types in your migration file in "up" function.
+
+public function up()
+{
+  Schema::create('employees', function (Blueprint $table) {
+
+     $table->bigIncrements('id');
+
+     $table->string('name');
+
+     $table->string('gender');
+
+     $table->integer('age');
+
+     $table->string('designation');
+
+     $table->timestamps();
+  });
+}
+
+
+=> Note: This timestmps(); function creates two columns;
+1) Created_at
+2) Updated_at
+
+* Laravel automatically add date and time in these two columns whenever user perform operations
+  like: Insertion or Modicfication in data.
+
+* Now, use properties in model class like $table, $PrimaryKey, $timestamps, $fillable.
+
+
+=======
+$table:
+=======
+
+* You can use $table property to modify table name.
+
+* Syntax: protected $table = "employees11";
+
+
+============
+$PrimaryKey:
+============
+
+* You can use $PrimaryKey property in your model class to set your id as Primary key in your table.
+
+* Syntax: protected $PrimaryKey = 'id';
+
+
+============
+$timestamps:
+============
+
+* If you want to see date and time while performing operations like insertion and modification
+  then, give it value true; otherwise give it value false;
+
+* Syntax: public $timestamps = false;
+
+
+==========
+$fillable:
+==========
+
+* We have 5 columns:
+1) id
+2) name
+3) gender
+4) age
+5) designation
+
+* But, id is auto increment and is non-fillable. So we need to use fillable property on rest of the columns.
+
+* Give columns name to $fillable property in an array form.
+
+* Syntax: protected $fillable ['name', 'gender', 'age', 'designation'];  
+
+
+Step.4 (Set Default String Length Of Varchar Columns)
+
+* Now, set up the Default String Length of varchar columns in your table.
+
+* use illuminate\Support\Facades\Schemas;
+
+* Copy this namespace from your migration file and paste it into app > Providers > AppServiceProvider.php file.
+
+
+-----------------------
+-----------------------
+AppServiceProvider.php:
+-----------------------
+-----------------------
+
+use illuminate\Support\ServiceProvider;
+use illuminate\Support\Facades\Schema; //(Pasted.!!)
+
+
+* In AppServiceProvider.php, scroll down and you will see boot function.
+
+* Now, Add this line in boot function: Schema::DefaultStringLength(200);
+
+public function boot()
+{
+  Schema::DefaultStringLength(200);
+}
+
+
+=> Note: You can give any length in your default string length.
+
+
+Step.5 (Execution Of File)
+
+* After writing migration code then run your migrations.
+
+* After runnig the migrations, all tables will be created in your database automatically.
+
+* Command for running the migrations: php artisan migrate.
+
+* Now, refresh your database and you will see table created in your database with the name of Employees.
+
+
+=> Note: By default, the length of integer is 11.

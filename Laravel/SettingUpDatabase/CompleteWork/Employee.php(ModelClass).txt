@@ -1,0 +1,13 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Employee extends Model
+{
+    public $timestamps = false; //For not showing date and time column in our table.
+    protected $PrimaryKey = 'ID'; //For setting primary key to ID column
+    protected $fillable = ['NAME', 'GENDER', 'AGE', 'DESIGNATION']; //Manually Fillable columns
+}
