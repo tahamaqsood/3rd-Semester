@@ -67,7 +67,7 @@ EmployeesMigration:
 
 * In up function, you need to define how many columns/attributes you want in your table along with their data types.
 
-* In down function, if the table is already exist in database with the name then this function will drop that table.
+* In down function, if the table is already exist in database with the same name then this function will drop that table.
 
 * You will see this code in up function:
 
@@ -198,7 +198,7 @@ Step.5 (Execution Of File)
 
 * After writing migration code then run your migrations.
 
-* After runnig the migrations, all tables will be created in your database automatically.
+* After running the migrations, all tables will be created in your database automatically.
 
 * Command for running the migrations: php artisan migrate.
 
