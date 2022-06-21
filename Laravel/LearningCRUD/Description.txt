@@ -1,0 +1,8 @@
+We are learning CRUD application by using Resource Controller.
+
+=> Components:
+
+* Fetching Data With Pagination
+* Inserting Data with the help of Model Class
+* Updating Data with the help of Model Class
+* Deleting Records with the help of Model Class
