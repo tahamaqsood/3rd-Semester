@@ -1,0 +1,73 @@
+==========
+JQUERY UI:
+==========
+
+* jQuery UI is a curated set of user interface interactions, effects, widgets, and themes
+  built on top of the jQuery JavaScript library.
+
+========
+WIDGETS:
+========
+
+* Accordion
+* Autocomplete
+* Button
+* CheckBoxradio
+* Controlgroup
+* Datepicker
+* Dialog
+* Menu
+* Progressbar
+* Selectmenu
+* Slider
+* Spinner
+* Tabs
+* Tooltip
+
+
+==================
+DOWNLOADING GUIDE:
+==================
+
+* For download, go to google > search jQuery ui > open 1st link: https://jqueryui.com/
+
+* Click on download which is written on navbar right after Demos.
+
+* Select latest version and click on stable. File will be downloaded within 5 seconds.
+
+* Copy folder and paste it into your main project folder and extract it there.
+
+* Go to your VS Code editor > link CSS and JS Files.
+
+* Before Linking Jquery UI CSS and Js Files, make sure to add jQuery file or CDN within head tag.
+
+~ EXAMPLE: 
+  <!DOCTYPE html>
+  <html lang="en">
+   <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto-Complete</title>
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- JS Script -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.min.js"></script>
+
+    <!-- JQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+
+    <!-- JQuery UI CSS File -->
+    <link rel="stylesheet" href="jquery-ui-1.13.2/jquery-ui.min.css">
+
+    <!-- JQuery UI JS File -->
+    <script src="jquery-ui-1.13.2/jquery-ui.min.js"></script>
+
+   </head>
+  <body>
+
+ </body>
+</html>

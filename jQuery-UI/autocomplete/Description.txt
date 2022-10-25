@@ -1,0 +1,34 @@
+==============================
+JQUERY UI AUTOCOMPLETE METHOD:
+==============================
+
+* Autocomplete method enables user to quickly find and select from a pre-populated list
+  of values as they type, searching and filtering.
+
+=======
+SYNTAX:
+=======
+
+  $('selector').autocomplete({},{});
+
+* Note: In above syntax, there are two curly brackets. 1st one is for source of the list.
+        2nd one is for the customization of the UI list.
+
+========
+EXAMPLE:
+========
+
+    <script type="text/javascript">
+
+        var students = ["Usman","Umer","Umair","Uzair","Bilal","Babar","Rizwan","Raheel","Aashir","Amir"];
+        $(document).ready(function () {
+            $('#textboxId').autocomplete({
+                source:students
+             },{ 
+                autoFocus: true,
+                delay: 1000, //(One Second)
+                minLength: 2 //(Show list after the 2 characters matches)
+             });
+        });
+
+    </script> 
