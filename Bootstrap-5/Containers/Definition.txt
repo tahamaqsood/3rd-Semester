@@ -25,5 +25,3 @@ CONTAINERS IN BOOTSTRAP 5:
 
 * Note: You can also use the .container-sm|md|lg|xl classes to determine when the container
         should be responsive.
-
-
