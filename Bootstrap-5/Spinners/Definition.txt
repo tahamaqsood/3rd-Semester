@@ -30,14 +30,3 @@ SPINNER BUTTON:
 ===============
 
 * You can also add spinners to a button, with or without text.
-
-
-
-
-
-
-
-
-
-
-
