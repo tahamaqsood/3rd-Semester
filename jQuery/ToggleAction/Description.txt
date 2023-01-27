@@ -31,8 +31,8 @@ SNIPPET CODE:
             else if(toggle==2)
             {
                 //Your specified statement
-		 //Your specified statement
-		 //Your specified statement
+		//Your specified statement
+		//Your specified statement
                 toggle = 3;
             }
             else if(toggle==3)
